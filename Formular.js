@@ -14,7 +14,8 @@ $(document).ready(function () {
 
 
 function Datum(){
-    $("#submit").click(function(){
+    $("#Formular").submit(function(e){
+        e.preventDefault();
         date = new Date();
         output = String(date.getDate()) + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
         //alert(output);
@@ -48,11 +49,24 @@ function Berechnung() {
 
 function Ausgabe(){
     kundenname = $("#kundename").val();
+    email = $("#mail").val();
+    telefon = $("#tel").val();
+    dienstleistung = $("#Service").val();
+
+    $("#AusgabeTitel").html('Auswahl');
+    $("#AusgabeParagraph").html(
+        ` <br> Kundename ${kundenname} <br>
+        Email ${email} <br>
+        Telefon ${telefon} <br>
+        Dienstleistung ${dienstleistung} <br>
+        Priorität ${prioritaet} <br>
+        Heutiges Datum ${output} <br>
+        Abholdatum ${newDate}
+        `
+    );
+
 }
 
 
-    
-    /*document.getElementById("submit").onclick = function(){
-        alert("hallo");
-
-     }*/
+// Daten an Server schicken
+// Telefon und Email validieren
