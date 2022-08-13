@@ -67,6 +67,16 @@ function Ausgabe(){
 
 }
 
+function Landingpage1() {
+    //$("#klein").click($("#Service").val("Kleiner-Service"));
+    //$("#gross").click($("#Service").val("Grosser-Service"));
+    //$("#renn").click($("#Service").val("Rennski-Service"));
+    //$("#bind").click($("#Service").val("Bindung-montieren-und-einstellen"));
+    //$("#fell").click($("#Service").val("Fell-zuschneiden"));
+    //$("#heiss").click($("#Service").val("Heisswachsen"));
+    
+}
+
 
 // Daten an Server schicken
 // Telefon und Email validieren
