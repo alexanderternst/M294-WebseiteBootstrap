@@ -38,6 +38,7 @@ function Datum(){
 function reset() {
     $("#reset").click(function (){
         $("#AusgabeTitel").html("");
+        $("#AusgabeTitelFehler").html("");
         $("#AusgabeParagraph").html("");
     });
     
@@ -88,7 +89,8 @@ function Ausgabe(){
 // Datenfelder überprüfen
 function verify() {
     if ((email == "") || (kundenname == "") || (telefon == "") || (dienstleistung == "") || (prioritaet == "")){
-        $("#AusgabeTitel").html('<br>Fehlerhafte eingabe');
+        $("#AusgabeTitel").html('');
+        $("#AusgabeTitelFehler").html('<br>Fehlerhafte eingabe');
         $("#AusgabeParagraph").html("");
     }else {
         Preisberechnung();
@@ -134,6 +136,7 @@ function Preisberechnung(){
 //Ausgabe
 function AusgabeHTML(){
     // Gebe Werte des Formulars in vorher kreiertenm Heading und Paragraph aus (überprüfung fehlt noch)
+    $("#AusgabeTitelFehler").html('');
     $("#AusgabeTitel").html('Auswahl');
     $("#AusgabeParagraph").html(
         ` <br> Kundename: ${kundenname} <br>
