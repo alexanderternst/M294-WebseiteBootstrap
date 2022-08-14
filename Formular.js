@@ -5,9 +5,12 @@ let prioritaet;
 let newDate;
 
 let kundenname;
-let email;
+let email = null;
 let telefon;
 let dienstleistung;
+
+let prioritaetPreis;
+let Preis;
 
 //Funktionn Datum aufrufen
 $(document).ready(function () {
@@ -38,16 +41,19 @@ function Berechnung() {
         case "tief":
             newDate = (date.getDate() + 12) + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
             //alert(newDate);
+            prioritaetPreis = 0;
             break;
 
         case "normal":
             newDate = (date.getDate() + 7) + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
             //alert(newDate);
+            prioritaetPreis = 5;
             break;
 
         case "express":
             newDate = (date.getDate() + 5) + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
             //alert(newDate);
+            prioritaetPreis = 10;
             break;
     
         default:
@@ -63,7 +69,44 @@ function Ausgabe(){
     email = $("#mail").val();
     telefon = $("#tel").val();
     dienstleistung = $("#Service").val();
+    Preisberechnung();
+}
 
+function Preisberechnung(){
+    switch (dienstleistung) {
+        case "Kleiner-Service":
+            Preis = 30 + prioritaetPreis;
+            break;
+    
+        case "Grosser-Service":
+            Preis = 60 + prioritaetPreis;
+            break;
+
+        
+        case "Rennski-Service":
+            Preis = 70 + prioritaetPreis;
+            break;
+
+        
+        case "Bindung-montieren-und-einstellen":
+            Preis = 15 + prioritaetPreis;
+            break;
+
+        case "Fell-zuschneiden":
+            Preis = 15 + prioritaetPreis;
+            break;
+
+        case "Heisswachsen":
+            Preis = 15 + prioritaetPreis;
+            break;
+        
+        default:
+            break;
+    }
+    AusgabeHTML();
+}
+
+function AusgabeHTML(){
     // Gebe Werte des Formulars in vorher kreiertenm Heading und Paragraph aus (überprüfung fehlt noch)
     $("#AusgabeTitel").html('Auswahl');
     $("#AusgabeParagraph").html(
@@ -73,11 +116,10 @@ function Ausgabe(){
         Dienstleistung ${dienstleistung} <br>
         Priorität ${prioritaet} <br>
         Heutiges Datum ${output} <br>
-        Abholdatum ${newDate}
-        `
-    );
-
-}
+        Abholdatum ${newDate} <br>
+        Totalpreis ${Preis} CHF
+        `)
+};
 
 // Test, Goal: wenn man cards drückt wählt es direkt den richtigen Service an
 function Landingpage1() {
