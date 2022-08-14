@@ -15,6 +15,7 @@ let Preis;
 //Funktionn Datum aufrufen
 $(document).ready(function () {
     Datum();
+    reset();
 });
 
 
@@ -31,6 +32,14 @@ function Datum(){
         //Rufe Funktion Berechnung auf
         Berechnung();
     });
+}
+
+function reset() {
+    $("#reset").click(function (){
+        $("#AusgabeTitel").html("");
+        $("#AusgabeParagraph").html("");
+    });
+    
 }
 
 function Berechnung() {
@@ -69,7 +78,17 @@ function Ausgabe(){
     email = $("#mail").val();
     telefon = $("#tel").val();
     dienstleistung = $("#Service").val();
-    Preisberechnung();
+    verify();
+}
+
+function verify() {
+    if ((email == "") || (kundenname == "") || (telefon == "") || (dienstleistung == "") || (prioritaet == "")){
+        $("#AusgabeTitel").html('<br>Fehlerhafte eingabe');
+        $("#AusgabeParagraph").html("");
+    }else {
+        Preisberechnung();
+    }
+    
 }
 
 function Preisberechnung(){
@@ -110,24 +129,13 @@ function AusgabeHTML(){
     // Gebe Werte des Formulars in vorher kreiertenm Heading und Paragraph aus (überprüfung fehlt noch)
     $("#AusgabeTitel").html('Auswahl');
     $("#AusgabeParagraph").html(
-        ` <br> Kundename ${kundenname} <br>
-        Email ${email} <br>
-        Telefon ${telefon} <br>
-        Dienstleistung ${dienstleistung} <br>
-        Priorität ${prioritaet} <br>
-        Heutiges Datum ${output} <br>
-        Abholdatum ${newDate} <br>
-        Totalpreis ${Preis} CHF
+        ` <br> Kundename: ${kundenname} <br>
+        Email: ${email} <br>
+        Telefon: ${telefon} <br>
+        Dienstleistung: ${dienstleistung} <br>
+        Priorität: ${prioritaet} <br>
+        Heutiges Datum: ${output} <br>
+        Abholdatum: ${newDate} <br>
+        Totalpreis: ${Preis} CHF
         `)
 };
-
-// Test, Goal: wenn man cards drückt wählt es direkt den richtigen Service an
-function Landingpage1() {
-    //$("#klein").click($("#Service").val("Kleiner-Service"));
-    //$("#gross").click($("#Service").val("Grosser-Service"));
-    //$("#renn").click($("#Service").val("Rennski-Service"));
-    //$("#bind").click($("#Service").val("Bindung-montieren-und-einstellen"));
-    //$("#fell").click($("#Service").val("Fell-zuschneiden"));
-    //$("#heiss").click($("#Service").val("Heisswachsen"));
-    
-}
