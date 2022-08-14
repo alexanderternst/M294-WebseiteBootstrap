@@ -1,0 +1,14 @@
+https://www.abstractapi.com/guides/validate-phone-number-javascript
+
+https://stackoverflow.com/questions/46008760/how-to-build-multiple-language-website-using-pure-html-js-jquery
+
+https://www.w3schools.com/js/js_json_html.asp
+
+https://extension.umaine.edu/plugged-in/technology-marketing-communications/web/tips-for-web-managers/embed-map/
+
+https://stackoverflow.com/questions/18624326/getmonth-in-javascript-gives-previous-month
+
+https://attacomsian.com/blog/javascript-date-add-days
+
+GitHub:
+https://github.com/alex0417a/ProjektarbeitM294
