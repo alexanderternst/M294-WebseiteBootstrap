@@ -15,9 +15,11 @@
 
 <body>
     <!-- Navbar mit blauem Hintergrund und weissem Text. -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary static-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">Jetstream</a>
+            <a class="navbar-brand" href="index.html">
+                <img src="bilder/logo.png" alt="" height="30px">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -56,6 +58,23 @@
             </iframe>
         </p>
     </div>
+
+    <nav class="navbar fixed-bottom navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Weitere Informationen</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link disable" aria-current="page" href="">AGB</a>
+                    <a class="nav-link disable" aria-current="page" href="">Impressum</a>
+                    <a class="nav-link disable" aria-current="page" href="">Kontaktinformationen</a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
     <!-- Aufrufen von Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
