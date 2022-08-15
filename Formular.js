@@ -34,9 +34,9 @@ $(document).ready(function () {
 // Berechne Datum
 function Datum() {
     //Rufe function(e) auf wenn Formular Submitted wird
-    $("#Formular").submit(function (e) {
+    $("#Formular").submit(function (event) {
         //Submite das Formular nicht (führe die action des Formulars nicht aus)
-        e.preventDefault();
+        event.preventDefault();
         // methode date kreieren
         date = new Date();
         // aktuelles datum speichern
@@ -209,7 +209,7 @@ function EingabeServer() {
         pickup_date: newDate
     };
 
-    fetch('http://localhost:5000', {
+    fetch('http://localhost:5000/api/registration', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -237,4 +237,5 @@ function EingabeServer() {
 };
 function finish(data) {
     alert('Post wurde erfolgreich eingefügt. id=' + data.id, 'success');
+    console.log("test");
 }
