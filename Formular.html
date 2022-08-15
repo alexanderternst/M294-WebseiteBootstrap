@@ -23,9 +23,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="Angebot.html">Angebot</a>
                     <a class="nav-link active" aria-current="page" href="Formular.html">Formular</a>
-                    <a class="nav-link active" aria-current="page"
-                        href="Kontaktinformationen.html">Kontaktinformationen</a>
+                    <a class="nav-link active" aria-current="page" href="Kontaktinformationen.html">Kontaktinformationen</a>
                 </div>
             </div>
         </div>
@@ -34,9 +34,13 @@
     <!-- div class container für die zentrierung und skalierung -->
     <div class="container">
         <h1>Formular</h1>
-
+        <div id="liveAlertPlaceholder"></div>
         <!-- Form mit verchiedenen Formularelmenten die jeweils 4 breit sind (maximale Breite: 12) -->
         <form id="Formular">
+            <div class="col-md-4">
+                <label for="kundenid" class="form-label">Kundenid</label>
+                <input type="number" class="form-control" id="kundenid" placeholder="Kundenid eingeben">
+            </div>
             <div class="col-md-4">
                 <label for="kundename" class="form-label">Kundename</label>
                 <input type="text" class="form-control" id="kundename" placeholder="Kundenname eingeben">
@@ -49,14 +53,14 @@
 
             <div class="col-md-4">
                 <label for="tel" class="form-label">Telefon</label>
-                <input type="tel" class="form-control" id="tel" placeholder="Telefon Nummer eingeben">
+                <input type="tel" class="form-control" id="tel" placeholder="Telefon Nummer eingeben" pattern="[0-9]{3} [0-9]{3} [0-9]{4}" required="required">
             </div><br>
 
             <select class="form-selectpicker col-md-4" id="Prioritaet">
                 <option selected value="">Wähle Priorität</option>
-                <option value="tief">Tief - 0 CHF</option>
-                <option value="normal">Standard - 10 CHF</option>
-                <option value="express">Express - 15 CHF</option>
+                <option value="Tief">Tief - 0 CHF</option>
+                <option value="Standard">Standard - 10 CHF</option>
+                <option value="Express">Express - 15 CHF</option>
             </select><br> <br>
 
             <select class="form-selectpicker col-md-4" id="Service">
@@ -70,13 +74,12 @@
             </select><br><br>
 
             <!-- Submit button welcher das Formular abschickt (nicht befor wir aber in die Datei Formular.js gehen.) -->
-            <button type="submit" class="btn btn-primary" id="submit">Submit</button>
-            <button type="reset" class="btn btn-primary" id="reset">Reset</button><br>
+            <button type="submit" class="btn btn-primary" id="submit">Senden</button>
+            <button type="reset" class="btn btn-primary" id="reset">Zurücksetzen</button><br>
         
             <!-- Leere Headings und Paragraphe für die spätere Ausgabe (muss vielleicht ausserhalb form sein (unklar)) -->
             <h3 id="AusgabeTitel"></h3>
             <p id="AusgabeParagraph"></p>
-            <h3 style="color: red;"id="AusgabeTitelFehler"></h3>
 
         </form>
 
