@@ -16,5 +16,12 @@ https://stackoverflow.com/questions/6997187/how-to-check-for-empty-value-in-java
 
 https://getbootstrap.com/docs/4.1/content/tables/
 
+https://www.w3schools.com/html/html_favicon.asp
+
+https://getbootstrap.com/docs/5.2/components/navbar/
+
+https://startbootstrap.com/snippets/navbar-logo
+
 GitHub:
 https://github.com/alex0417a/ProjektarbeitM294
+http://localhost:5000/api-docs/
