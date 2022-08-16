@@ -12,6 +12,9 @@ let dienstleistung;
 
 let prioritaetPreis;
 let Preis;
+let tage;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function alert(message, type) {
     const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
@@ -25,28 +28,34 @@ function alert(message, type) {
     alertPlaceholder.append(wrapper)
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 //Funktionn Datum aufrufen
 $(document).ready(function () {
-    Datum();
+    Formular();
     reset();
 });
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 // Berechne Datum
-function Datum() {
+function Formular() {
     //Rufe function(e) auf wenn Formular Submitted wird
     $("#Formular").submit(function (event) {
         //Submite das Formular nicht (führe die action des Formulars nicht aus)
         event.preventDefault();
-        // methode date kreieren
-        date = new Date();
-        // aktuelles datum speichern
 
-        output = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + 'T' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '.' + date.getMilliseconds();
-        //console.log(output);
-        //Rufe Funktion Berechnung auf
+        //Rufe Funktionen aus
         Berechnung();
+        Ausgabe();
+        verify();
+        Preisberechnung();
+        AusgabeHTML();
+        EingabeServer();
     });
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Reset Button konfigurieren
 function reset() {
@@ -57,48 +66,57 @@ function reset() {
 
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 // Abholdatum ausrechnen
 function Berechnung() {
+
+    // methode date kreieren
+    date = new Date();
+    // aktuelles datum speichern
+
+    output = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + 'T' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '.' + date.getMilliseconds();
+    //console.log(output);
+
     // Speichere die prioritaet
     prioritaet = $("#Prioritaet").val();
     // Rechne das Abholdatum aus
     switch (prioritaet) {
         case "Tief":
-            newDate = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + (date.getDate() + 12) + 'T' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '.' + date.getMilliseconds();
+            tage = 12;
             //alert(newDate);
             prioritaetPreis = 0;
             break;
 
         case "Standard":
-            newDate = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + (date.getDate() + 7) + 'T' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '.' + date.getMilliseconds();
+            tage = 7;
             //alert(newDate);
             prioritaetPreis = 10;
             break;
 
         case "Express":
-            newDate = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + (date.getDate() + 5) + 'T' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '.' + date.getMilliseconds();
+            tage = 5;
             //alert(newDate);
             prioritaetPreis = 15;
             break;
-
         default:
             break;
     }
-    // Rufe Funktion Ausgabe auf
-    Ausgabe();
+    newDate = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + (date.getDate() + tage) + 'T' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '.' + date.getMilliseconds();
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Values in Variablen speichern
 function Ausgabe() {
     // Speichere kundenname, email, telefon und dienstleistung
-    kundenid = $("#kundenid").val().trim();
     kundenname = $("#kundename").val().trim();
     email = $("#mail").val().trim();
     telefon = $("#tel").val().trim();
     dienstleistung = $("#Service").val();
-    verify();
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Datenfelder überprüfen
 function verify() {
@@ -138,11 +156,10 @@ function verify() {
         $("#AusgabeParagraph").html('');
         return false;
     }
-    else {
-        Preisberechnung();
-    }
 
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Preisberechnung mit priorität und Preis
 function Preisberechnung() {
@@ -176,16 +193,17 @@ function Preisberechnung() {
         default:
             break;
     }
-    AusgabeHTML();
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Ausgabe
 function AusgabeHTML() {
     // Gebe Werte des Formulars in vorher kreiertenm Heading und Paragraph aus (überprüfung fehlt noch)
     $("#AusgabeTitelFehler").html('');
     $("#AusgabeTitel").html('Auswahl');
-    $("#AusgabeParagraph").html(
-        ` <br> Kundename: ${kundenname} <br>
+    $("#AusgabeParagraph").html(`
+        <br> Kundename: ${kundenname} <br>
         Email: ${email} <br>
         Telefon: ${telefon} <br>
         Dienstleistung: ${dienstleistung} <br>
@@ -194,12 +212,12 @@ function AusgabeHTML() {
         Abholdatum: ${newDate} <br>
         Totalpreis: ${Preis} CHF
         `)
-    EingabeServer();
-};
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function EingabeServer() {
     const post = {
-        id: kundenid,
         name: kundenname,
         email: email,
         phone: telefon,
@@ -216,25 +234,26 @@ function EingabeServer() {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            id: post.id,
-            name: post.name,
-            email: post.email,
-            phone: post.phone,
-            priority: post.priority,
-            service: post.service,
-            create_date: post.create_date,
-            pickup_date: post.pickup_date
-        })
-    }).then((response) => response.json())
+            "name": post.name,
+            "email": post.email,
+            "phone": post.phone,
+            "priority": post.priority,
+            "service": post.service,
+            "create_date": post.create_date,
+            "pickup_date": post.pickup_date
+        }),
+    })
+        .then((response) => response.json())
         .then((json) => finish(json))
         .catch((error) => {
             alert("Post konnte nicht eingefügt werden. " + error, "danger");
             return false;
-        })
-
+        });
     return true;
-
 };
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 function finish(data) {
     alert('Post wurde erfolgreich eingefügt. id=' + data.id, 'success');
     console.log("test");
