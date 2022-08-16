@@ -22,6 +22,14 @@ https://getbootstrap.com/docs/5.2/components/navbar/
 
 https://startbootstrap.com/snippets/navbar-logo
 
+https://stackoverflow.com/questions/3362481/e-preventdefault-not-working
+
+https://medium.com/@jacobwarduk/how-to-correctly-use-preventdefault-stoppropagation-or-return-false-on-events-6c4e3f31aedb
+
+https://www.codexpedia.com/javascript/submitting-html-form-without-reload-the-page/
+
+https://stackoverflow.com/questions/19454310/stop-form-refreshing-page-on-submit
+
 GitHub:
 https://github.com/alex0417a/ProjektarbeitM294
 http://localhost:5000/api-docs/
