@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <link href="FunZone.css" rel="stylesheet">
+    <title>Funzone</title>
+</head>
+
+<body>
+    <div class="container">
+        <div style=" text-align: center;">
+            <h1>Ski-Game anlehnung an Skifree</h1>
+            <div>
+                <input type="textare" calss="leben" id="leben" style="tab-size: 2;" value="Leben: 3               Meter: 0"></input>
+            </div>
+            <div id="schwierigkeit">
+                <p>Bitte Wählen sie die schwierigkeit</p>
+                  <input type="radio" id="einfach" name="einfach" value="1">
+                  <label for="einfach">Einfach</label>
+                <input type="radio" id="mittel" name="mittel" value="2" checked>
+                  <label for="mittel">Normal</label>
+                  <input type="radio" id="schwer" name="schwer" value="3">
+                  <label for="schwer">Schwer</label>
+                  <input type="radio" id="ultra" name="ultra" value="4">
+                  <label for="ultra">Ultra</label>
+            </div>
+            <canvas id="leinwand" width="400" height="700"></canvas>
+            <div>
+                <button id="links">&larr;</button>
+                <button id="rechts">&rarr;</button>
+                <button id="go">Spielen</button>
+                <button id="TryAgain">Try Again</button>
+            </div>
+        </div>
+    </div>
+    <script src="FunZone.js"></script>
+</body>
+
+</html>
