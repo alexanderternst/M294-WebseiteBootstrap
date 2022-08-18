@@ -1,0 +1,10 @@
+#body {
+    background-color: rgb(215, 229, 240);
+}
+.tales {
+    width: 50%;
+}
+
+.carousel-inner {
+    max-height: 400px;
+}
