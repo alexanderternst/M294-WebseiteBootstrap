@@ -17,17 +17,21 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary static-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html">
-                <img src="bilder/logo.png" alt="" height="30px">
+                <img src="bilder/logo.png" alt="" height="30px"
+                    class="d-inline-block align-text-top">
+                 Jetstream
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="Angebot.html">Angebot</a>
-                    <a class="nav-link active" aria-current="page" href="Formular.html">Formular</a>
-                    <a class="nav-link active" aria-current="page" href="Kontaktinformationen.html">Kontaktinformationen</a>
+                    <a class="nav-link disable" aria-current="page" href="Angebot.html">Angebot</a>
+                    <a class="nav-link disable" aria-current="page" href="Formular.html">Formular</a>
+                    <a class="nav-link disable" aria-current="page"
+                        href="Kontaktinformationen.html">Kontaktinformationen</a>
                 </div>
             </div>
         </div>
@@ -35,34 +39,35 @@
 
     <!-- div class container für die zentrierung und skalierung -->
     <div class="container">
-        <h1>Formular</h1>
+        <br>
+        <h2>Formular</h2>
         <div id="liveAlertPlaceholder"></div>
         <!-- Form mit verchiedenen Formularelmenten die jeweils 4 breit sind (maximale Breite: 12) -->
         <form id="Formular">
 
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <label for="kundename" class="form-label">Kundename</label>
                 <input type="text" class="form-control" id="kundename" placeholder="Kundenname eingeben">
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <label for="mail" class="form-label">Email</label>
                 <input type="email" class="form-control" id="mail" placeholder="Email eingeben">
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <label for="tel" class="form-label">Telefon</label>
-                <input type="tel" class="form-control" id="tel" placeholder="Telefon Nummer eingeben" pattern="[0-9]{3} [0-9]{3} [0-9]{4}" required="required">
+                <input type="tel" class="form-control" id="tel" placeholder="Tel. Format: XXX XXX XXXX" pattern="[0-9]{3} [0-9]{3} [0-9]{4}" required="required">
             </div><br>
 
-            <select class="form-selectpicker col-md-4" id="Prioritaet">
+            <select class="form-selectpicker col-md-6" id="Prioritaet">
                 <option selected value="">Wähle Priorität</option>
                 <option value="Tief">Tief - 0 CHF</option>
                 <option value="Standard">Standard - 10 CHF</option>
                 <option value="Express">Express - 15 CHF</option>
             </select><br> <br>
 
-            <select class="form-selectpicker col-md-4" id="Service">
+            <select class="form-selectpicker col-md-6" id="Service">
                 <option selected value="">Wähle Diensteleistung</option>
                 <option value="Kleiner-Service">Kleiner-Service - 70 CHF</option>
                 <option value="Grosser-Service">Grosser-Service - 140 CHF</option>
@@ -82,24 +87,45 @@
 
         </form>
 
-    </div>
+        <footer class="bg-light border-top">
 
-    <nav class="navbar fixed-bottom navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Weitere Informationen</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link disable" aria-current="page" href="">AGB</a>
-                    <a class="nav-link disable" aria-current="page" href="">Impressum</a>
-                    <a class="nav-link disable" aria-current="page" href="">Kontaktinformationen</a>
+            <div class="container p-4">
+    
+                <div class="row">
+    
+                    <div class="col-lg-6">
+                        <h5>Weitere Informationen</h5>
+    
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="agb.html" class="text-dark">AGB</a>
+                            </li>
+                            <li>
+                                <a href="copyright.html" class="text-dark">Copyright</a>
+                            </li>
+                            <li>
+                                <a href="FunZone.html" class="text-dark">Mini-Game</a>
+                            </li>
+    
+                            <li>
+                                <a href="#!" class="text-dark"></a>
+                            </li>
+                        </ul>
+                    </div>
+    
                 </div>
+    
             </div>
-        </div>
-    </nav>
+    
+            <!-- Copyright -->
+            <div class="text-center p-3 bg-light">
+                © 2022 Copyright:
+                <a class="text-dark" href="">Copyright</a>
+            </div>
+            <!-- Copyright -->
+        </footer>
+
+    </div>
     <!-- Aufrufen von Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
