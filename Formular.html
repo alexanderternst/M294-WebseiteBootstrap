@@ -39,100 +39,102 @@
     </nav>
 
     <!-- div class container für die zentrierung und skalierung -->
-    <div class="container">
-        <br>
-        <h2>Formular</h2>
-        <div id="liveAlertPlaceholder"></div>
-        <!-- Form mit verchiedenen Formularelmenten die jeweils 6 breit sind (maximale Breite: 12) -->
-        <form id="Formular">
-            <div class="row">
-                <div class="col-md-6">
+    <div id="page-container">
+        <div class="container" id="content-wrap">
+            <br>
+            <h2>Formular</h2>
+            <div id="liveAlertPlaceholder"></div>
+            <!-- Form mit verchiedenen Formularelmenten die jeweils 6 breit sind (maximale Breite: 12) -->
+            <form id="Formular">
+                <div class="row">
+                    <div class="col-md-6">
 
-                    <div class="col-md-8">
-                        <label for="kundename" class="form-label">Kundename</label>
-                        <input type="text" class="form-control" id="kundename" placeholder="Kundenname eingeben">
+                        <div class="col-md-8">
+                            <label for="kundename" class="form-label">Kundename</label>
+                            <input type="text" class="form-control" id="kundename" placeholder="Kundenname eingeben">
+                        </div>
+
+                        <div class="col-md-8">
+                            <label for="mail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="mail" placeholder="Email eingeben">
+                        </div>
+
+                        <div class="col-md-8">
+                            <label for="tel" class="form-label">Telefon</label>
+                            <input type="tel" class="form-control" id="tel" placeholder="Tel. Format: XXX XXX XXXX"
+                                pattern="[0-9]{3} [0-9]{3} [0-9]{4}" required="required">
+                        </div><br>
+
+                        <select class="form-selectpicker col-md-8" id="Prioritaet">
+                            <option selected value="">Wähle Priorität</option>
+                            <option value="Tief">Tief - 0 CHF</option>
+                            <option value="Standard">Standard - 10 CHF</option>
+                            <option value="Express">Express - 15 CHF</option>
+                        </select><br> <br>
+
+                        <select class="form-selectpicker col-md-8" id="Service">
+                            <option selected value="">Wähle Diensteleistung</option>
+                            <option value="Kleiner-Service">Kleiner-Service - 70 CHF</option>
+                            <option value="Grosser-Service">Grosser-Service - 140 CHF</option>
+                            <option value="Rennski-Service">Rennski-Service - 150 CHF</option>
+                            <option value="Bindung-montieren-und-einstellen">Bindung montieren und einstellen - 40 CHF
+                            </option>
+                            <option value="Fell-zuschneiden">Fell zuschneiden - 40 CHF</option>
+                            <option value="Heisswachsen">Heisswachsen - 40 CHF</option>
+                        </select><br><br>
+
+                        <!-- Submit button welcher das Formular abschickt (nicht bevor wir aber in die Datei Formular.js gehen.) -->
+                        <button type="submit" class="btn btn-primary" id="submit">Senden</button>
+                        <button type="reset" class="btn btn-primary" id="reset">Zurücksetzen</button><br><br>
+                    </div>
+                    <div class="col-md-6">
+                        <!-- Leere Headings und Paragraphe für die spätere Ausgabe -->
+                        <h3 id="AusgabeTitel"></h3>
+                        <p id="AusgabeParagraph"></p>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+
+        <!-- Footer mit AGB, Kontaktinformationen und Copyright -->
+        <footer class="bg-light border-top" id="footer">
+
+            <div class="container p-4">
+
+                <div class="row">
+
+                    <div class="col-lg-6">
+                        <h5>Weitere Informationen</h5>
+
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="agb.html" class="text-dark">AGB</a>
+                            </li>
+                            <li>
+                                <a href="Kontaktinformationen.html" class="text-dark">Kontaktinformationen</a>
+                            </li>
+                            <li>
+                                <a href="FunZone.html" class="text-dark">Mini-Game</a>
+                            </li>
+
+                            <li>
+                                <a href="#!" class="text-dark"></a>
+                            </li>
+                        </ul>
                     </div>
 
-                    <div class="col-md-8">
-                        <label for="mail" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="mail" placeholder="Email eingeben">
-                    </div>
-
-                    <div class="col-md-8">
-                        <label for="tel" class="form-label">Telefon</label>
-                        <input type="tel" class="form-control" id="tel" placeholder="Tel. Format: XXX XXX XXXX"
-                            pattern="[0-9]{3} [0-9]{3} [0-9]{4}" required="required">
-                    </div><br>
-
-                    <select class="form-selectpicker col-md-8" id="Prioritaet">
-                        <option selected value="">Wähle Priorität</option>
-                        <option value="Tief">Tief - 0 CHF</option>
-                        <option value="Standard">Standard - 10 CHF</option>
-                        <option value="Express">Express - 15 CHF</option>
-                    </select><br> <br>
-
-                    <select class="form-selectpicker col-md-8" id="Service">
-                        <option selected value="">Wähle Diensteleistung</option>
-                        <option value="Kleiner-Service">Kleiner-Service - 70 CHF</option>
-                        <option value="Grosser-Service">Grosser-Service - 140 CHF</option>
-                        <option value="Rennski-Service">Rennski-Service - 150 CHF</option>
-                        <option value="Bindung-montieren-und-einstellen">Bindung montieren und einstellen - 40 CHF
-                        </option>
-                        <option value="Fell-zuschneiden">Fell zuschneiden - 40 CHF</option>
-                        <option value="Heisswachsen">Heisswachsen - 40 CHF</option>
-                    </select><br><br>
-
-                    <!-- Submit button welcher das Formular abschickt (nicht bevor wir aber in die Datei Formular.js gehen.) -->
-                    <button type="submit" class="btn btn-primary" id="submit">Senden</button>
-                    <button type="reset" class="btn btn-primary" id="reset">Zurücksetzen</button><br><br>
                 </div>
-                <div class="col-md-6">
-                    <!-- Leere Headings und Paragraphe für die spätere Ausgabe -->
-                    <h3 id="AusgabeTitel"></h3>
-                    <p id="AusgabeParagraph"></p>
-                </div>
+
             </div>
 
-        </form>
-
+            <div class="text-center p-3 bg-light">
+                © 2022 Copyright:
+                <a class="text-dark" href="copyright.html">Copyright</a>
+            </div>
+        </footer>
     </div>
-
-    <!-- Footer mit AGB, Kontaktinformationen und Copyright -->
-    <footer class="bg-light border-top">
-
-        <div class="container p-4">
-
-            <div class="row">
-
-                <div class="col-lg-6">
-                    <h5>Weitere Informationen</h5>
-
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="agb.html" class="text-dark">AGB</a>
-                        </li>
-                        <li>
-                            <a href="Kontaktinformationen.html" class="text-dark">Kontaktinformationen</a>
-                        </li>
-                        <li>
-                            <a href="FunZone.html" class="text-dark">Mini-Game</a>
-                        </li>
-
-                        <li>
-                            <a href="#!" class="text-dark"></a>
-                        </li>
-                    </ul>
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="text-center p-3 bg-light">
-            © 2022 Copyright:
-            <a class="text-dark" href="copyright.html">Copyright</a>
-        </div>
-    </footer>
     <!-- Aufrufen von Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
