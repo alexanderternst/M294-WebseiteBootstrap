@@ -44,47 +44,53 @@
         <div id="liveAlertPlaceholder"></div>
         <!-- Form mit verchiedenen Formularelmenten die jeweils 6 breit sind (maximale Breite: 12) -->
         <form id="Formular">
+            <div class="row">
+                <div class="col-md-6">
 
-            <div class="col-md-6">
-                <label for="kundename" class="form-label">Kundename</label>
-                <input type="text" class="form-control" id="kundename" placeholder="Kundenname eingeben">
+                    <div class="col-md-8">
+                        <label for="kundename" class="form-label">Kundename</label>
+                        <input type="text" class="form-control" id="kundename" placeholder="Kundenname eingeben">
+                    </div>
+
+                    <div class="col-md-8">
+                        <label for="mail" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="mail" placeholder="Email eingeben">
+                    </div>
+
+                    <div class="col-md-8">
+                        <label for="tel" class="form-label">Telefon</label>
+                        <input type="tel" class="form-control" id="tel" placeholder="Tel. Format: XXX XXX XXXX"
+                            pattern="[0-9]{3} [0-9]{3} [0-9]{4}" required="required">
+                    </div><br>
+
+                    <select class="form-selectpicker col-md-8" id="Prioritaet">
+                        <option selected value="">Wähle Priorität</option>
+                        <option value="Tief">Tief - 0 CHF</option>
+                        <option value="Standard">Standard - 10 CHF</option>
+                        <option value="Express">Express - 15 CHF</option>
+                    </select><br> <br>
+
+                    <select class="form-select col-md-8" id="Service">
+                        <option selected value="">Wähle Diensteleistung</option>
+                        <option value="Kleiner-Service">Kleiner-Service - 70 CHF</option>
+                        <option value="Grosser-Service">Grosser-Service - 140 CHF</option>
+                        <option value="Rennski-Service">Rennski-Service - 150 CHF</option>
+                        <option value="Bindung-montieren-und-einstellen">Bindung montieren und einstellen - 40 CHF
+                        </option>
+                        <option value="Fell-zuschneiden">Fell zuschneiden - 40 CHF</option>
+                        <option value="Heisswachsen">Heisswachsen - 40 CHF</option>
+                    </select><br><br>
+
+                    <!-- Submit button welcher das Formular abschickt (nicht bevor wir aber in die Datei Formular.js gehen.) -->
+                    <button type="submit" class="btn btn-primary" id="submit">Senden</button>
+                    <button type="reset" class="btn btn-primary" id="reset">Zurücksetzen</button><br><br>
+                </div>
+                <div class="col-md-6">
+                    <!-- Leere Headings und Paragraphe für die spätere Ausgabe -->
+                    <h3 id="AusgabeTitel"></h3>
+                    <p id="AusgabeParagraph"></p>
+                </div>
             </div>
-
-            <div class="col-md-6">
-                <label for="mail" class="form-label">Email</label>
-                <input type="email" class="form-control" id="mail" placeholder="Email eingeben">
-            </div>
-
-            <div class="col-md-6">
-                <label for="tel" class="form-label">Telefon</label>
-                <input type="tel" class="form-control" id="tel" placeholder="Tel. Format: XXX XXX XXXX"
-                    pattern="[0-9]{3} [0-9]{3} [0-9]{4}" required="required">
-            </div><br>
-
-            <select class="form-selectpicker col-md-6" id="Prioritaet">
-                <option selected value="">Wähle Priorität</option>
-                <option value="Tief">Tief - 0 CHF</option>
-                <option value="Standard">Standard - 10 CHF</option>
-                <option value="Express">Express - 15 CHF</option>
-            </select><br> <br>
-
-            <select class="form-selectpicker col-md-6" id="Service">
-                <option selected value="">Wähle Diensteleistung</option>
-                <option value="Kleiner-Service">Kleiner-Service - 70 CHF</option>
-                <option value="Grosser-Service">Grosser-Service - 140 CHF</option>
-                <option value="Rennski-Service">Rennski-Service - 150 CHF</option>
-                <option value="Bindung-montieren-und-einstellen">Bindung montieren und einstellen - 40 CHF</option>
-                <option value="Fell-zuschneiden">Fell zuschneiden - 40 CHF</option>
-                <option value="Heisswachsen">Heisswachsen - 40 CHF</option>
-            </select><br><br>
-
-            <!-- Submit button welcher das Formular abschickt (nicht bevor wir aber in die Datei Formular.js gehen.) -->
-            <button type="submit" class="btn btn-primary" id="submit">Senden</button>
-            <button type="reset" class="btn btn-primary" id="reset">Zurücksetzen</button><br>
-
-            <!-- Leere Headings und Paragraphe für die spätere Ausgabe -->
-            <h3 id="AusgabeTitel"></h3>
-            <p id="AusgabeParagraph"></p>
 
         </form>
 
