@@ -16,6 +16,7 @@ let tage;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// Funktion alert um Erfolg oder Fehler auszugebene mit Funktionvariablen message und type
 function alert(message, type) {
     const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
     const wrapper = document.createElement('div')
@@ -30,11 +31,22 @@ function alert(message, type) {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//Funktionn Datum aufrufen
+//Funktionen Formular (für Submit) und Reset (für Reset) aufrufen
 $(document).ready(function () {
     Formular();
-    reset();
+    Reset();
 });
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//Reset Button konfigurieren
+function Reset() {
+    $("#reset").click(function () {
+        $("#AusgabeTitel").html("");
+        $("#AusgabeParagraph").html("");
+    });
+
+}
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -46,78 +58,66 @@ function Formular() {
         event.preventDefault();
 
         //Rufe Funktionen aus
-        Berechnung();
-        reset();
+        Datum();
     });
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//Reset Button konfigurieren
-function reset() {
-    $("#reset").click(function () {
-        $("#AusgabeTitel").html("");
-        $("#AusgabeParagraph").html("");
-    });
+// Aktuelles Datum und Abholdatum ausrechnen
+function Datum() {
 
-}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// Abholdatum ausrechnen
-function Berechnung() {
-
-    // methode date kreieren
+    // Methode date kreieren
     date = new Date();
     // aktuelles datum speichern
 
     output = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + 'T' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '.' + date.getMilliseconds();
     //console.log(output);
 
-    // Speichere die prioritaet
+    // Speichere die prioritaet in Variable prioritaet
     prioritaet = $("#Prioritaet").val();
+
     // Rechne das Abholdatum aus
     switch (prioritaet) {
         case "Tief":
+            // Anzahl Tage des Auftrags speichern
             tage = 12;
-            //alert(newDate);
+            // Preis der Priorität speichern
             prioritaetPreis = 0;
             break;
 
         case "Standard":
             tage = 7;
-            //alert(newDate);
             prioritaetPreis = 10;
             break;
 
         case "Express":
             tage = 5;
-            //alert(newDate);
             prioritaetPreis = 15;
             break;
         default:
             break;
     }
     newDate = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + (date.getDate() + tage) + 'T' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '.' + date.getMilliseconds();
-    Ausgabe();
+    Eingabe();
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// Values in Variablen speichern
-function Ausgabe() {
+// Eingaben in Variablen speichern
+function Eingabe() {
     // Speichere kundenname, email, telefon und dienstleistung
     kundenname = $("#kundename").val().trim();
     email = $("#mail").val().trim();
     telefon = $("#tel").val().trim();
     dienstleistung = $("#Service").val();
-    verify();
+    Verify();
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// Datenfelder überprüfen
-function verify() {
+// Datenfelder überprüfen und wenn nötig Fehlermeldung ausgeben, sonst Daten Ausgeben und zum Server schicken
+function Verify() {
     if (email == '') {
         alert("Email ist unvollständig", "danger");
         $("#AusgabeTitel").html('');
@@ -163,7 +163,7 @@ function verify() {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// Preisberechnung mit priorität und Preis
+// Preisberechnung je nach Priorirät und Dienstleistung
 function Preisberechnung() {
     switch (dienstleistung) {
         case "Kleiner-Service":
@@ -200,9 +200,9 @@ function Preisberechnung() {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//Ausgabe
+//Ausgabe in HTML
 function AusgabeHTML() {
-    // Gebe Werte des Formulars in vorher kreiertenm Heading und Paragraph aus (überprüfung fehlt noch)
+    // Gebe Werte des Formulars in Heading und Paragraph aus
     $("#AusgabeTitelFehler").html('');
     $("#AusgabeTitel").html('Auswahl');
     $("#AusgabeParagraph").html(`
@@ -215,12 +215,15 @@ function AusgabeHTML() {
         Abholdatum: ${newDate} <br>
         Totalpreis: ${Preis} CHF
         `)
+        // Rufe Funktion auf welche Daten zum Server schickt.
         EingabeServer();
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// Schicke Eingaben des Formulars zum Server
 function EingabeServer() {
+    // Speichere Eingabe in const Variable (Objekt)
     const post = {
         name: kundenname,
         email: email,
@@ -231,6 +234,7 @@ function EingabeServer() {
         pickup_date: newDate
     };
 
+    // Verbinde mit localhost Server und schicke Daten zum Server
     fetch('http://localhost:5000/api/registration', {
         method: 'POST',
         headers: {
@@ -247,6 +251,7 @@ function EingabeServer() {
             "pickup_date": post.pickup_date
         }),
     })
+        // Schicke Daten zu der Funktion finish oder fange einen Error und gebe Error aus
         .then((response) => response.json())
         .then((json) => finish(json))
         .catch((error) => {
@@ -258,6 +263,7 @@ function EingabeServer() {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// Gebe Erfolgsmeldung aus
 function finish(data) {
     alert('Post wurde erfolgreich eingefügt. id=' + data.id, 'success');
     console.log("test");
