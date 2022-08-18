@@ -8,6 +8,7 @@
     <title>Kontaktinformationen</title>
     <link rel="icon" type="image/x-icon" href="/bilder/logo.ico">
     <link href="styles.css" rel="stylesheet">
+
     <!-- Inkludieren von Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
@@ -40,67 +41,69 @@
     </nav>
 
     <!-- div class container für die zentrierung und skalierung -->
-    <div class="container">
-        <!-- Kontaktinformationen der Firma Jetstream -->
-        <br>
-        <h2>Kontaktinformationen</h2>
-        <p>
-            Jetstream-Service <br>
-            Tellistrasse 4 <br>
-            5000 Aarau <br><br>
-            Tel. 077 469 61 27 <br>
-            Email: info@jetstream.ch<br><br>
+    <div id="page-container">
+        <div class="container" id="content-wrap">
+            <!-- Kontaktinformationen der Firma Jetstream -->
+            <br>
+            <h2>Kontaktinformationen</h2>
+            <p>
+                Jetstream-Service <br>
+                Tellistrasse 4 <br>
+                5000 Aarau <br><br>
+                Tel. 077 469 61 27 <br>
+                Email: info@jetstream.ch<br><br>
 
-            <b>Bürozeiten</b><br>
+                <b>Bürozeiten</b><br>
 
-            Montag – Donnerstag: 07.30 – 12.00 Uhr und 13.00 – 17.30 Uhr<br>
-            Freitag: 07.30 – 12.00 Uhr und 13.00 – 17.00 Uhr<br><br>
+                Montag – Donnerstag: 07.30 – 12.00 Uhr und 13.00 – 17.30 Uhr<br>
+                Freitag: 07.30 – 12.00 Uhr und 13.00 – 17.00 Uhr<br><br>
 
-            <b>Standort</b><br>
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2700.8780315265594!2d8.0512144!3d47.394812599999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47903be52767abcf%3A0x687f83c0cccff041!2sTellistrasse%204%2C%205000%20Aarau!5e0!3m2!1sde!2sch!4v1660387837428!5m2!1sde!2sch"
-                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-        </p>
-    </div>
+                <b>Standort</b><br>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2700.8780315265594!2d8.0512144!3d47.394812599999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47903be52767abcf%3A0x687f83c0cccff041!2sTellistrasse%204%2C%205000%20Aarau!5e0!3m2!1sde!2sch!4v1660387837428!5m2!1sde!2sch"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </p>
+        </div>
 
-    <!-- Footer mit AGB, Kontaktinformationen und Copyright -->
-    <footer class="bg-light border-top">
+        <!-- Footer mit AGB, Kontaktinformationen und Copyright -->
+        <footer class="bg-light border-top" id="footer">
 
-        <div class="container p-4">
+            <div class="container p-4">
 
-            <div class="row">
+                <div class="row">
 
-                <div class="col-lg-6">
-                    <h5>Weitere Informationen</h5>
+                    <div class="col-lg-6">
+                        <h5>Weitere Informationen</h5>
 
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="agb.html" class="text-dark">AGB</a>
-                        </li>
-                        <li>
-                            <a href="Kontaktinformationen.html" class="text-dark">Kontaktinformationen</a>
-                        </li>
-                        <li>
-                            <a href="FunZone.html" class="text-dark">Mini-Game</a>
-                        </li>
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="agb.html" class="text-dark">AGB</a>
+                            </li>
+                            <li>
+                                <a href="Kontaktinformationen.html" class="text-dark">Kontaktinformationen</a>
+                            </li>
+                            <li>
+                                <a href="FunZone.html" class="text-dark">Mini-Game</a>
+                            </li>
 
-                        <li>
-                            <a href="#!" class="text-dark"></a>
-                        </li>
-                    </ul>
+                            <li>
+                                <a href="#!" class="text-dark"></a>
+                            </li>
+                        </ul>
+                    </div>
+
                 </div>
 
             </div>
 
-        </div>
-
-        <div class="text-center p-3 bg-light">
-            © 2022 Copyright:
-            <a class="text-dark" href="copyright.html">Copyright</a>
-        </div>
-    </footer>
+            <div class="text-center p-3 bg-light">
+                © 2022 Copyright:
+                <a class="text-dark" href="copyright.html">Copyright</a>
+            </div>
+        </footer>
+    </div>
 
     <!-- Aufrufen von Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
