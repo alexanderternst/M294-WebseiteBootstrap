@@ -265,6 +265,6 @@ function EingabeServer() {
 
 // Gebe Erfolgsmeldung aus
 function finish(data) {
-    alert('Post wurde erfolgreich eingefügt. id=' + data.id, 'success');
+    alert('Post wurde erfolgreich eingefügt. Kundenid = ' + data.id, 'success');
     console.log("test");
 }
