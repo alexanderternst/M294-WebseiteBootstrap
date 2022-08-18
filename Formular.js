@@ -47,11 +47,7 @@ function Formular() {
 
         //Rufe Funktionen aus
         Berechnung();
-        Ausgabe();
-        verify();
-        Preisberechnung();
-        AusgabeHTML();
-        EingabeServer();
+        reset();
     });
 }
 
@@ -103,6 +99,7 @@ function Berechnung() {
             break;
     }
     newDate = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + (date.getDate() + tage) + 'T' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '.' + date.getMilliseconds();
+    Ausgabe();
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -114,6 +111,7 @@ function Ausgabe() {
     email = $("#mail").val().trim();
     telefon = $("#tel").val().trim();
     dienstleistung = $("#Service").val();
+    verify();
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -156,6 +154,10 @@ function verify() {
         $("#AusgabeParagraph").html('');
         return false;
     }
+    else{
+        Preisberechnung();
+        return false;
+    }
 
 }
 
@@ -193,6 +195,7 @@ function Preisberechnung() {
         default:
             break;
     }
+    AusgabeHTML();
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -212,6 +215,7 @@ function AusgabeHTML() {
         Abholdatum: ${newDate} <br>
         Totalpreis: ${Preis} CHF
         `)
+        EingabeServer();
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
