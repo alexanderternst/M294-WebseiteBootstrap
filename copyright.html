@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Copyright</title>
+    <link rel="icon" type="image/x-icon" href="/bilder/logo.ico">
     <!-- Inkludieren von Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
@@ -14,7 +15,9 @@
 </head>
 
 <style>
-    body{font-family: calibri;}
+    body {
+        font-family: calibri;
+    }
 </style>
 
 <body>
@@ -23,9 +26,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary static-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html">
-                <img src="bilder/logo.png" alt="" height="30px"
-                    class="d-inline-block align-text-top">
-                 Jetstream
+                <img src="bilder/logo.png" alt="" height="30px" class="d-inline-block align-text-top">
+                Jetstream
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
@@ -43,26 +45,29 @@
         </div>
     </nav>
     <div class="container">
-    <div class="copyright" align="center">
-        <script>
-            document.write('&copy;');
-            document.write(' 2014 - ');
-            document.write(new Date().getFullYear());
-            document.write(' www.jetstream-service.ch - All Rights Reserved.');
-            document.write('<br/>Last Updated : ');
-            document.write(document.lastModified);
-        </script>
+        <!-- Copyright -->
+        <div class="copyright" align="center">
+            <script>
+                document.write('&copy;');
+                document.write(' 2014 - ');
+                document.write(new Date().getFullYear());
+                document.write(' www.jetstream-service.ch - All Rights Reserved.');
+                document.write('<br/>Last Updated : ');
+                document.write(document.lastModified);
+            </script>
+        </div>
+
+        <!-- Quellen -->
+        <h4>Quellen</h4>
+        <a href="https://unsplash.com/photos/5LHLhaUXdT4">Quelle Bild 1</a><br>
+        <a href="https://unsplash.com/photos/DumeSMuXgao">Quelle Bild 2</a><br>
+        <a href="https://unsplash.com/photos/8FG9tt8qZ-8">Quelle Bild 3</a><br>
+        <a href="https://unsplash.com/license">Bedingungen von Unsplash</a><br>
+
+        <div style="height: 200px;"></div>
     </div>
 
-    <h4>Quellen</h4>
-    <a href="https://unsplash.com/photos/5LHLhaUXdT4">Quelle Bild 1</a><br>
-    <a href="https://unsplash.com/photos/DumeSMuXgao">Quelle Bild 2</a><br>
-    <a href="https://unsplash.com/photos/8FG9tt8qZ-8">Quelle Bild 3</a><br>
-    <a href="https://unsplash.com/license">Bedingungen von Unsplash</a><br>
-
-    <div style="height: 200px;"></div>
-    </div>
-
+    <!-- Footer mit AGB, Kontaktinformationen und Copyright -->
     <footer class="bg-light border-top">
 
         <div class="container p-4">
@@ -77,7 +82,7 @@
                             <a href="agb.html" class="text-dark">AGB</a>
                         </li>
                         <li>
-                            <a href="copyright.html" class="text-dark">Copyright</a>
+                            <a href="Kontaktinformationen.html" class="text-dark">Kontaktinformationen</a>
                         </li>
                         <li>
                             <a href="FunZone.html" class="text-dark">Mini-Game</a>
@@ -93,12 +98,10 @@
 
         </div>
 
-        <!-- Copyright -->
         <div class="text-center p-3 bg-light">
             © 2022 Copyright:
-            <a class="text-dark" href="">Copyright</a>
+            <a class="text-dark" href="copyright.html">Copyright</a>
         </div>
-        <!-- Copyright -->
     </footer>
     <!-- Aufrufen von Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
