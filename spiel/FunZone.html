@@ -5,30 +5,56 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <link href="FunZone.css" rel="stylesheet">
     <title>Funzone</title>
 </head>
 
-<body>
+<body id="body">
+
+     <nav class="navbar navbar-expand-lg navbar-dark bg-primary static-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="bilder/logo.png" alt="" height="30px" class="d-inline-block align-text-top">
+                Jetstream
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav">
+                    <a class="nav-link disable" aria-current="page" href="Angebot.html">Angebot</a>
+                    <a class="nav-link disable" aria-current="page" href="Formular.html">Formular</a>
+                    <a class="nav-link disable" aria-current="page"
+                        href="Kontaktinformationen.html">Kontaktinformationen</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
     <div class="container">
         <div style=" text-align: center;">
-            <h1>Ski-Game anlehnung an Skifree</h1>
+            <h1>Ski-Game Anlehnung an Skifree</h1>
             <div>
-                <input type="textare" calss="leben" id="leben" style="tab-size: 2;" value="Leben: 3               Meter: 0"></input>
+                <input type="text" class="leben" id="leben"  value="Leben: 3">
+                <input type="text" class="leben" id="meter" value="Meter: 0">
             </div>
-            <div id="schwierigkeit">
+            <div id="schwierigkeitEinstllen">
                 <p>Bitte Wählen sie die schwierigkeit</p>
-                  <input type="radio" id="einfach" name="einfach" value="1">
+                  <input type="radio" id="einfach" name="schwierigkeit" value="1">
                   <label for="einfach">Einfach</label>
-                <input type="radio" id="mittel" name="mittel" value="2" checked>
+                  <input type="radio" id="mittel" name="schwierigkeit" value="2" checked>
                   <label for="mittel">Normal</label>
-                  <input type="radio" id="schwer" name="schwer" value="3">
+                  <input type="radio" id="schwer" name="schwierigkeit" value=3>
                   <label for="schwer">Schwer</label>
-                  <input type="radio" id="ultra" name="ultra" value="4">
+                  <input type="radio" id="ultra" name="schwierigkeit" value="4">
                   <label for="ultra">Ultra</label>
             </div>
-            <canvas id="leinwand" width="400" height="700"></canvas>
+            <canvas id="leinwand" height="700" width="400"></canvas>
             <div>
                 <button id="links">&larr;</button>
                 <button id="rechts">&rarr;</button>
@@ -37,6 +63,48 @@
             </div>
         </div>
     </div>
+    <br><br>
+
+    <!-- Footer mit AGB, Kontaktinformationen und Copyright -->
+    <footer class="bg-light border-top">
+
+        <div class="container p-4">
+
+            <div class="row">
+
+                <div class="col-lg-6">
+                    <h5>Weitere Informationen</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="agb.html" class="text-dark">AGB</a>
+                        </li>
+                        <li>
+                            <a href="Kontaktinformationen.html" class="text-dark">Kontaktinformationen</a>
+                        </li>
+                        <li>
+                            <a href="FunZone.html" class="text-dark">Mini-Game</a>
+                        </li>
+
+                        <li>
+                            <a href="#!" class="text-dark"></a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="text-center p-3 bg-light">
+            © 2022 Copyright:
+            <a class="text-dark" href="copyright.html">Copyright</a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
     <script src="FunZone.js"></script>
 </body>
 

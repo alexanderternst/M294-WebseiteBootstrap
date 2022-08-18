@@ -1,6 +1,3 @@
-body {
-    margin: 0;
-}
 
 #leinwand {
     background-color: whitesmoke;
@@ -20,14 +17,17 @@ body {
 }
 
 
-#leben {
-	tab-size: 5;
+.leben {
 	display: none;
+	background-color: rgb(215, 229, 240);
+	border-color: rgb(215, 229, 240);
+
 }
 
 #go {
 	background-color: blue;
 	color: whitesmoke;
+	display: none;
 }
 
 #rechts{
@@ -43,3 +43,7 @@ body {
 	width: 200px;
 	display: none;
 }
+#body {
+    background-color: rgb(215, 229, 240);
+}
+
