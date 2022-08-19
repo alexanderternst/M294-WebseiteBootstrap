@@ -72,7 +72,7 @@ function Datum() {
     // aktuelles datum speichern
 
     output = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + 'T' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '.' + date.getMilliseconds();
-    //console.log(output);
+    outputHTML = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
 
     // Speichere die prioritaet in Variable prioritaet
     prioritaet = $("#Prioritaet").val();
@@ -99,6 +99,7 @@ function Datum() {
             break;
     }
     newDate = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + (date.getDate() + tage) + 'T' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '.' + date.getMilliseconds();
+    outputDate = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + (date.getDate() + tage);
     Eingabe();
 }
 
@@ -126,12 +127,6 @@ function Verify() {
     }
     else if (kundenname == '') {
         alert("Kundenname ist unvollständig", "danger");
-        $("#AusgabeTitel").html('');
-        $("#AusgabeParagraph").html('');
-        return false;
-    }
-    else if (kundenid == '') {
-        alert("Kundenid ist unvollständig", "danger");
         $("#AusgabeTitel").html('');
         $("#AusgabeParagraph").html('');
         return false;
@@ -211,8 +206,8 @@ function AusgabeHTML() {
         Telefon: ${telefon} <br>
         Dienstleistung: ${dienstleistung} <br>
         Priorität: ${prioritaet} <br>
-        Heutiges Datum: ${output} <br>
-        Abholdatum: ${newDate} <br>
+        Heutiges Datum: ${outputHTML} <br>
+        Abholdatum: ${outputDate} <br>
         Totalpreis: ${Preis} CHF
         `)
     // Rufe Funktion auf welche Daten zum Server schickt.
@@ -266,5 +261,4 @@ function EingabeServer() {
 // Gebe Erfolgsmeldung aus
 function finish(data) {
     alert('Eingabe wurde erfolgreich in Server eingefügt. Kundenid = ' + data.id, 'success');
-    console.log("test");
 }
