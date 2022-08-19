@@ -4,7 +4,6 @@ let output;
 let prioritaet;
 let newDate;
 
-let kundenid;
 let kundenname;
 let email;
 let telefon;
@@ -198,7 +197,6 @@ function Preisberechnung() {
 //Ausgabe in HTML
 function AusgabeHTML() {
     // Gebe Werte des Formulars in Heading und Paragraph aus
-    $("#AusgabeTitelFehler").html('');
     $("#AusgabeTitel").html('Eingabe');
     $("#AusgabeParagraph").html(`
         <br> Kundename: ${kundenname} <br>
