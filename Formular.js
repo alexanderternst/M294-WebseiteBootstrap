@@ -154,7 +154,7 @@ function Verify() {
         $("#AusgabeParagraph").html('');
         return false;
     }
-    else{
+    else {
         Preisberechnung();
         return false;
     }
@@ -204,7 +204,7 @@ function Preisberechnung() {
 function AusgabeHTML() {
     // Gebe Werte des Formulars in Heading und Paragraph aus
     $("#AusgabeTitelFehler").html('');
-    $("#AusgabeTitel").html('Auswahl');
+    $("#AusgabeTitel").html('Eingabe');
     $("#AusgabeParagraph").html(`
         <br> Kundename: ${kundenname} <br>
         Email: ${email} <br>
@@ -215,8 +215,8 @@ function AusgabeHTML() {
         Abholdatum: ${newDate} <br>
         Totalpreis: ${Preis} CHF
         `)
-        // Rufe Funktion auf welche Daten zum Server schickt.
-        EingabeServer();
+    // Rufe Funktion auf welche Daten zum Server schickt.
+    EingabeServer();
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -255,7 +255,7 @@ function EingabeServer() {
         .then((response) => response.json())
         .then((json) => finish(json))
         .catch((error) => {
-            alert("Post konnte nicht eingefügt werden. " + error, "danger");
+            alert("Verbindung mit Server konnte nicht hergestellt werden. " + error, "danger");
             return false;
         });
     return true;
@@ -265,6 +265,6 @@ function EingabeServer() {
 
 // Gebe Erfolgsmeldung aus
 function finish(data) {
-    alert('Post wurde erfolgreich eingefügt. Kundenid = ' + data.id, 'success');
+    alert('Eingabe wurde erfolgreich in Server eingefügt. Kundenid = ' + data.id, 'success');
     console.log("test");
 }
