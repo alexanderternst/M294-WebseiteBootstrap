@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Formular</title>
+    <title>Überprüfung</title>
     <link rel="icon" type="image/x-icon" href="/bilder/logo.ico">
     <link href="styles.css" rel="stylesheet">
     <!-- Inkludieren von Bootstrap -->
@@ -41,61 +41,64 @@
     <!-- div class container für die zentrierung und skalierung -->
     <div id="page-container">
         <div class="container" id="content-wrap">
-            <br>
-            <h2>Formular</h2>
-            <div id="liveAlertPlaceholder"></div>
-            <!-- Form mit verchiedenen Formularelmenten die jeweils 6 breit sind (maximale Breite: 12) -->
-            <form id="Formular">
-                <div class="row">
-                    <div class="col-md-6">
+            <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6">
+                    <br>
+                    <h1>Überprüfung</h1>
+                    <p>Bitte überprüfen Sie ihre Daten und schicken, sie dann ab.</p>
+                    <div id="liveAlertPlaceholder"></div>
+                    <table class="table table-bordered border-secondary table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Type</th>
+                                <th scope="col">Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Kundenname</td>
+                                <td id="kundenname"></td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td id="email"></td>
+                            </tr>
+                            <tr>
+                                <td>Telefon</td>
+                                <td id="telefon"></td>
+                            </tr>
+                            <tr>
+                                <td>Diensteleistung</td>
+                                <td id="dienstleistung"></td>
+                            </tr>
+                            <tr>
+                                <td>Priorität</td>
+                                <td id="prioritaet"></td>
+                            </tr>
+                            <tr>
+                                <td>Heutiges Datum</td>
+                                <td id="HeutigDatum"></td>
+                            </tr>
+                            <tr>
+                                <td>Abholdatum</td>
+                                <td id="AbholDatum"></td>
+                            </tr>
+                            <tr>
+                                <td>Preis</td>
+                                <td id="preis"></td>
+                            </tr>
+                        </tbody>
+                    </table>
 
-                        <div class="col-md-8">
-                            <label for="kundenname" class="form-label">Kundename</label>
-                            <input type="text" class="form-control" id="kundenname" placeholder="Kundenname eingeben">
-                        </div>
-
-                        <div class="col-md-8">
-                            <label for="mail" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="mail" placeholder="Email eingeben">
-                        </div>
-
-                        <div class="col-md-8">
-                            <label for="tel" class="form-label">Telefon</label>
-                            <input type="tel" class="form-control" id="tel" placeholder="Tel. Format: XXX XXX XXXX"
-                                pattern="[0-9]{3} [0-9]{3} [0-9]{4}">
-                        </div><br>
-
-                        <select class="form-selectpicker col-md-8" id="Prioritaet">
-                            <option selected value="">Wähle Priorität</option>
-                            <option value="Tief">Tief - 0 CHF - 12 Tage</option>
-                            <option value="Standard">Standard - 10 CHF - 7 Tage</option>
-                            <option value="Express">Express - 15 CHF - 5 Tage</option>
-                        </select><br> <br>
-
-                        <select class="form-selectpicker col-md-8" id="Service">
-                            <option selected value="">Wähle Diensteleistung</option>
-                            <option value="Kleiner-Service">Kleiner-Service - 70 CHF</option>
-                            <option value="Grosser-Service">Grosser-Service - 140 CHF</option>
-                            <option value="Rennski-Service">Rennski-Service - 150 CHF</option>
-                            <option value="Bindung-montieren-und-einstellen">Bindung montieren und einstellen - 40 CHF
-                            </option>
-                            <option value="Fell-zuschneiden">Fell zuschneiden - 40 CHF</option>
-                            <option value="Heisswachsen">Heisswachsen - 40 CHF</option>
-                        </select><br><br>
-
-                        <!-- Submit button welcher das Formular abschickt (nicht bevor wir aber in die Datei Formular.js gehen.) -->
+                    <form id="form">
                         <button type="submit" class="btn btn-primary" id="submit">Senden</button>
-                        <button type="reset" class="btn btn-primary" id="reset">Zurücksetzen</button><br><br>
-                    </div>
-                    <div class="col-md-6">
-                        <!-- Leere Headings und Paragraphe für die spätere Ausgabe -->
-                        <h3 id="AusgabeTitel"></h3>
-                        <p id="AusgabeParagraph"></p>
-                    </div>
+                        <button type="button" class="btn btn-primary" id="back">Korrigieren</button><br><br>
+                    </form>
+
                 </div>
-
-            </form>
-
+                <div class="col-sm-3"></div>
+            </div>
         </div>
 
         <!-- Footer mit AGB, Kontaktinformationen und Copyright -->
@@ -140,7 +143,7 @@
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
         crossorigin="anonymous"></script>
     <!-- Aufrufen von dem Skript Formular.js -->
-    <script src="Formular.js"></script>
+    <script src="confirm.js"></script>
 </body>
 
 </html>

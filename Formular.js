@@ -1,9 +1,11 @@
 // Definieren aller Variablen
 let date;
-let output;
-let prioritaet;
-let newDate;
+let date_server;
+let date_html;
+let pickupdate_server;
+let pickupdate_html;
 
+let prioritaet;
 let kundenname;
 let email;
 let telefon;
@@ -32,6 +34,17 @@ function alert(message, type) {
 
 //Funktionen Formular (für Submit) und Reset (für Reset) aufrufen
 $(document).ready(function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    
+    $("#kundenname").val(localStorage.getItem('Kundenname'));
+    $("#mail").val(localStorage.getItem('Email'));
+    $("#tel").val(localStorage.getItem('Telefon'));
+
+    // $("#Prioritaet").val(localStorage.getItem(''));
+    // $("#tel").val(localStorage.getItem(''));
+
+    localStorage.clear();
+
     Formular();
     Reset();
 });
@@ -70,8 +83,8 @@ function Datum() {
     date = new Date();
     // aktuelles datum speichern
 
-    output = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + 'T' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '.' + date.getMilliseconds();
-    outputHTML = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+    date_server = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + 'T' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '.' + date.getMilliseconds();
+    date_html = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
 
     // Speichere die prioritaet in Variable prioritaet
     prioritaet = $("#Prioritaet").val();
@@ -97,8 +110,8 @@ function Datum() {
         default:
             break;
     }
-    newDate = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + (date.getDate() + tage) + 'T' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '.' + date.getMilliseconds();
-    outputDate = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + (date.getDate() + tage);
+    pickupdate_server = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + (date.getDate() + tage) + 'T' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '.' + date.getMilliseconds();
+    pickupdate_html = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + (date.getDate() + tage);
     Eingabe();
 }
 
@@ -107,7 +120,7 @@ function Datum() {
 // Eingaben in Variablen speichern
 function Eingabe() {
     // Speichere kundenname, email, telefon und dienstleistung
-    kundenname = $("#kundename").val().trim();
+    kundenname = $("#kundenname").val().trim();
     email = $("#mail").val().trim();
     telefon = $("#tel").val().trim();
     dienstleistung = $("#Service").val();
@@ -196,67 +209,20 @@ function Preisberechnung() {
 
 //Ausgabe in HTML
 function AusgabeHTML() {
-    // Gebe Werte des Formulars in Heading und Paragraph aus
-    $("#AusgabeTitel").html('Eingabe');
-    $("#AusgabeParagraph").html(`
-        <br> Kundename: ${kundenname} <br>
-        Email: ${email} <br>
-        Telefon: ${telefon} <br>
-        Dienstleistung: ${dienstleistung} <br>
-        Priorität: ${prioritaet} <br>
-        Heutiges Datum: ${outputHTML} <br>
-        Abholdatum: ${outputDate} <br>
-        Totalpreis: ${Preis} CHF
-        `)
-    // Rufe Funktion auf welche Daten zum Server schickt.
-    EingabeServer();
-}
+    localStorage.setItem('Kundenname', kundenname);
+    localStorage.setItem('Email', email);
+    localStorage.setItem('Telefon', telefon);
+    localStorage.setItem('Dienstleistung', dienstleistung);
+    localStorage.setItem('Prioritaet', prioritaet);
+    localStorage.setItem('Preis', Preis);
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    localStorage.setItem('HeutigDatum', date_html);
+    localStorage.setItem('Abholdatum', pickupdate_html);
+    
+    localStorage.setItem('HeutigDatum_server', date_server);
+    localStorage.setItem('Abholdatum_server', pickupdate_server);
 
-// Schicke Eingaben des Formulars zum Server
-function EingabeServer() {
-    // Speichere Eingabe in const Variable (Objekt)
-    const post = {
-        name: kundenname,
-        email: email,
-        phone: telefon,
-        priority: prioritaet,
-        service: dienstleistung,
-        create_date: output,
-        pickup_date: newDate
-    };
+    console.log("test");
 
-    // Verbinde mit localhost Server und schicke Daten zum Server
-    fetch('http://localhost:5000/api/registration', {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            "name": post.name,
-            "email": post.email,
-            "phone": post.phone,
-            "priority": post.priority,
-            "service": post.service,
-            "create_date": post.create_date,
-            "pickup_date": post.pickup_date
-        }),
-    })
-        // Schicke Daten zu der Funktion finish oder fange einen Error und gebe Error aus
-        .then((response) => response.json())
-        .then((json) => finish(json))
-        .catch((error) => {
-            alert("Verbindung mit Server konnte nicht hergestellt werden. " + error, "danger");
-            return false;
-        });
-    return true;
-};
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// Gebe Erfolgsmeldung aus
-function finish(data) {
-    alert('Eingabe wurde erfolgreich in Server eingefügt. Kundenid = ' + data.id, 'success');
+    window.location = 'confirm.html';
 }
